@@ -21,7 +21,7 @@ $(document).on('submit', "#loginForm", function(e){
 
 	$.ajax({
 		dataType : 'json',
-		url : 'http://localhost:8080/auth/login',
+		url : '/auth/login',
 		type : 'POST',
 		contentType : 'application/json',
 		data : inputToUser(username, password),
