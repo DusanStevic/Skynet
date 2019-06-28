@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>More info</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/hotelAdmin.js"></script>
+    <script type="text/javascript" src="js/displayHotelInfo.js"></script>
+    <script type="text/javascript" src="js/uploadFile.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="hotelAdmin-home.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-bed"></span> Hotel's Profile</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li><a href="index.html"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="tab">
+        <button onclick="goBack()" class="tablinks">Back</button>
+    </div>
+
+    <div class="blue_middle_container_scroll">
+        <table class="content_table" id="roomInfo">
+            
+        </table>
+        <table class="criteria_table_width" id="roomInfo2">
+        	
+        </table>
+    </div>
+	<div id="roomModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeRoom">&times;</span>
+            <form enctype="multipart/form-data" id="roomImage" name="roomImage">
+	            <table class="ombre_table">
+	                <tr><td><h1>Room image:</h1></td></tr>
+	                <tr><td><input type="file" name="file" id="fileIM"/></td></tr>
+	                <tr><td><div class="submit_button"><input type="submit" value="Finish"></div></td></tr>
+	            </table>
+    		</form>
+        </div>
+    </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

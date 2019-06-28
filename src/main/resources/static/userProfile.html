@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>Hotel Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/hotelAdmin.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="hotelAdmin-addRoom.html"><span class="glyphicon glyphicon-bed"></span> Add Room</a></li>
+                <li><a href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-bed"></span> Hotel's Profile</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="ombre_div" id="userInfo">
+    </div>
+    <div id="HAModal" class="modal">
+        <div class="ombre_div">
+            <span class="close" id="closeAdmin">&times;</span>
+            <form id="editHAInfo">
+                <table class="ombre_table">
+                	<tr>
+                        <td><h3>Name: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="nameEdit" /></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Surname:</h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="surnameEdit" /></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Email:</h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="emailEdit" /></td>
+                    </tr>
+                    <tr>
+                        <td><h3>New password: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" id="newPasswordEdit" /></td>
+                    </tr>
+                    <tr>
+                    	<td><input type="submit" value="Update informations"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

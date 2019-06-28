@@ -1,0 +1,90 @@
+﻿<html>
+<head>
+  <title>Index</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!--  <script type="text/javascript" src="js/displayCompanies.js"></script> -->
+  <script type="text/javascript" src="js/welcome.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+  <script type="text/javascript" src="js/authorization.js"></script>
+  <script type="text/javascript" src="js/displayCompanies.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+    </ul>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="blue_middle_container">
+	<table class="middle_table">
+        <tr>
+            <td>
+                <table>
+                    <tr><td><h1>Welcome to Skynet!</h1></td></tr>
+                    <tr><td><p>To start the search on our site, choose whether you want to search information about airline companies, hotels or rent-a-car services registered on our site.</p></td></tr>
+                    <tr><td><p>If you want to have the possibility to book flights, hotel rooms and vehicles, as well as to access our full offer, create your account.</p></td></tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="middle_table">
+                    <tr>
+                        <td><div class="hover_image"><a href="search.html" id="airlineSearch"><img src="images/plane.png" class="hover_image" /></a></div></td>
+                        <td><div class="hover_image"><a href="search.html" id="hotelSearch"><img src="images/hotel.png" class="hover_image" /></a></div></td>
+                        <td><div class="hover_image"><a href="search.html" id="racSearch"><img src="images/rac.png" class="hover_image" /></a></div></td>
+                    </tr>
+                    <tr>
+                        <td class="central"><h4><b>Airline</b></h4></td>
+                        <td class="central"><h4><b>Hotel</b></h4></td>
+                        <td class="central"><h4><b>Rent-A-Car Service</b></h4></td>
+                    </tr>
+                </table>
+            </td>
+        </tr> 
+    </table>
+</div>
+
+    <div id="modal" class="modal">
+        <div class="ombre_div">
+            <span id="closeLogin">&times;</span>
+            <form id ="loginForm">
+                <table class="ombre_table">
+                    <tr>
+                        <td><h3>Username: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="username"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Password: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" id="password"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Log in" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

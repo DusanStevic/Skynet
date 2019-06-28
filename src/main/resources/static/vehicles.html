@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+<script type="text/javascript" src="lib/alertify/alertify.min.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/alertify.min.css">
+<link type="text/css" rel="stylesheet"
+	href="lib/alertify/css/themes/semantic.min.css">
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/vehicles.js"></script>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/companies.css" />
+
+<title>Vehicles</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+    </ul>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="index.html" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+	<h1>Vehicles search:</h1>
+
+	<div class="search-div">
+		<form id="formsrcvehs">
+			<input name="rentacarId" id="racIdHidden" type="hidden">
+			<table align="center">
+				<tr>
+					<td>Type:</td>
+					<td><input name="type" type="text"></td>
+					<td>Gear:</td>
+					<td>
+						<select name="gear">
+							<option> </option>
+							<option>Automatic</option>
+							<option>Manual</option>
+						</select>
+					</td>
+				
+					<td>Pick up:</td>
+					<td><input name="pickUp" id="vehpickup" type="date"></td>
+			
+					<td>Drop off:</td>
+					<td><input name="dropOff" id="vehdropoff" type="date"></td>
+			
+					<td></td>
+					<td><input type="submit" value="Search"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+	<div class="companies-div" id="vehsDiv"></div>
+	
+	
+	<div class="form-popup" id="myVehResForm">
+		<form class="form-container" id="form_container">
+			<h1 style="font-size:30px">Choose special offers</h1>
+			<div id="check_container"></div>
+			<p id="p_price" class="totalPrice"></p>
+			<button type="button" class="popup_btn confirm" id="so_confirm_btn">Choose</button>
+			<button type="button" class="popup_btn close" onclick="closeForm()">Cancel</button>
+			
+		</form>
+	</div>
+</body>
+
+</html>

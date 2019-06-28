@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registered User</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery.min.js"></script>
+<link href="toastr.css" rel="stylesheet" />
+<script type="text/javascript" src="toastr.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="js/authorization.js"></script>
+<script type="text/javascript" src="registeredUser1.js"></script>
+<script src="hoteldiscount.js"></script>
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/changePassword.js"></script>
+    <script type="text/javascript" src="js/racAdmin.js"></script>
+    <script type="text/javascript" src="js/uploadFile.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+<style>
+body {
+	background-image: url(../images/background.jpg);
+	font-family: Arial;
+	background-size: 100%;
+}
+
+
+.wrapper {
+	text-align: center;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	color: black;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+	background: white;
+}
+
+
+
+.inline-block {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+}
+
+
+
+</style>
+</head>
+<body>
+
+ <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="RegisteredUser.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+	<div class="tab">
+		
+		<button class="tablinks" 
+			onclick="openCity(event, 'allFlightReservations')">My Flight Reservations</button><button class="tablinks" 
+		onclick="openCity(event, 'allRoomReservations')">My Room Reservations</button>
+		<button class="tablinks" id="allReservationsButtton"
+			onclick="openCity(event, 'allReservations')">My Car reservations</button>
+		
+	</div>
+
+	<div id="allReservations" class="tabcontent">
+		<div class="container">
+			
+			<br>
+			<h2>Rent-a-cars</h2>
+			<table class="table table-hover" id="tableOfRentacarsRes">
+
+			</table>
+		</div>
+	</div>
+
+
+	<div id="gradeRentacar" class="tabcontent">
+		<div class="container">
+			<input type="hidden" id="rentacarId" value=""> <input
+				type="hidden" id="carId" value="">
+			<table id="gradeRentacarTable">
+
+				<tr>
+					<td id="rentacarGradeName"></td>
+				</tr>
+				<tr>
+					<td><input type="number" name="" value=""
+						placeholder="Enter grade from 1 to 5" id="rentacarGrade" /></td>
+				</tr>
+				<tr>
+					<td id="carGradeName"></td>
+				</tr>
+				<tr>
+					<td><input type="number" name="" value=""
+						placeholder="Enter grade from 1 to 5" id="carGrade" /></td>
+				</tr>
+
+			</table>
+			<button style="background: #69a7c5; color: white"
+				id="submitRentacarGrade" class="btn btn-primary">Submit</button>
+
+		</div>
+	</div>
+
+	
+
+	<script>
+		function openCity(evt, cityName) {
+			$(".lokacija").html("");
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+						" active", "");
+			}
+			$('#' + cityName).slideToggle(1000);
+			evt.currentTarget.className += " active";
+		}
+	</script>
+
+
+
+</body>
+</html>

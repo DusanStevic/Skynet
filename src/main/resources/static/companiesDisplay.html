@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Index</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/displayCompanies.js"></script>
+    <script type="text/javascript" src="js/displayHotelInfo.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=18116907-79b6-47b3-97aa-0db7c335b7e0&lang=en_US" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse" id="menubar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#login" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div id="mapModal" class="modal">
+    	<div id="map" style="width: 800px; height: 600px; margin-left: 20%;  margin-right: 20%;  padding:20px;"></div>
+    </div>
+	
+	
+    <div class="blue_middle_container" id="display">
+    	
+		<table id="dataDisplay">
+        	
+        </table>
+    </div>
+    <div id="modal" class="modal">
+        <div class="ombre_div">
+            <span class="close">&times;</span>
+            <form id ="loginForm">
+                <table class="ombre_table">
+                    <tr>
+                        <td><h3>Username: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="username"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Password: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" id="password"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Log in" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <script>
+        var modal = document.getElementById('modal');
+        var span = document.getElementsByClassName("close")[0];
+        $(document).on('click', '#login', function (e) {
+            modal.style.display = "block";
+
+        })
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

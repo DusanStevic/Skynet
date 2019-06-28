@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sys admin - home page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/reports.js"></script>
+    <script type="text/javascript" src="js/hotelAdmin.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            	<li><a href="hotelAdmin-addRoom.html"><span class="glyphicon glyphicon-bed"></span> Add Room</a></li>
+            	<li><a href="hotelAdmin-addFastReservation.html"><span class="glyphicon glyphicon-calendar"></span> Add Fast Reservation</a></li>
+                <li><a href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-bed"></span> Hotel's Profile</a></li>
+                <li><a href="userProfile.html"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li class="dropdown">
+	        		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	        		<span class="glyphicon glyphicon-stats"></span> Reports<span class="caret"></span></a>
+	        		<ul class="dropdown-menu">
+					  <li><a href = "hotelAdmin-report1.html" id = "chart_btn1" > Visits Report </a></li>
+					  <li><a href = "hotelAdmin-chartDate.html" id = "chart_btn2" > Income Report </a></li>
+	        		</ul>
+        		</li>
+                <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+	<div class="ombre_div">
+	   <form id="dateInput">
+	       <table class="ombre_table">
+	           <tr><td><h1>Enter date interval:</h1></td></tr>
+	           <tr><td>Start date:</td></tr>
+	           <tr><td><input type="date" id="start"/></td></tr>
+	           <tr><td><p>End date:</p></td></tr>
+	           <tr><td><input type="date" id="end" /></td></tr>
+	           <tr><td><input type="submit" value="Show income"/></td></tr>
+	       </table>
+	   </form>
+    </div>
+	
+     
+</body>
+
+</html>

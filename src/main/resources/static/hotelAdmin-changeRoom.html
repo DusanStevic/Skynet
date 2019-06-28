@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sys admin - home page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/hotelAdmin.js"></script>
+    <script type="text/javascript" src="js/uploadFile.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            	<li><a href="hotelAdmin-addRoom.html"><span class="glyphicon glyphicon-bed"></span> Add Room</a></li>
+            	<li><a href="hotelAdmin-addFastReservation.html"><span class="glyphicon glyphicon-calendar"></span> Add Fast Reservation</a></li>
+                <li><a href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-bed"></span> Hotel's Profile</a></li>
+                <li><a href="userProfile.html"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li class="dropdown">
+	        		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	        		<span class="glyphicon glyphicon-stats"></span> Reports<span class="caret"></span></a>
+	        		<ul class="dropdown-menu">
+					  <li><a href = "hotelAdmin-report1.html" id = "chart_btn1" > Visits Report </a></li>
+					  <li><a href = "hotelAdmin-chartDate.html" id = "chart_btn2" > Income Report </a></li>
+	        		</ul>
+        		</li>
+                <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+	<div class="ombre_div">
+	<form id="updateRoom">
+		<table class="ombre_table">
+			<tr><td><input type="hidden" id="editId"/></td></tr>
+			<tr><td><h2>Change informations about room:</h2></td></tr>
+			<tr><td>Bed number:</td></tr>
+			<tr><td><input type="text" id="editBeds"/></td></tr>
+			<tr><td>Price per night:</td></tr>
+			<tr><td><input type="text" id="editPrice"/></td></tr>
+			<tr><td>Room description:</td></tr>
+			<tr><td><textarea id="editRoomDesc"></textarea></td></tr>
+			<tr><td><h4>What does this room offer?</h4></td></tr>
+            <tr><td><p>Click <u><a href="#" id="newRoomOffer">here</a></u> to specify what this room offers (balcony, wi-fi...) or select existing offers:</p></td></tr>
+            <tr><td><div class="submit_button"><table id="roomOffers"></table></div></td></tr>
+            <tr><td><input type="submit" value="Save changes"/></td></tr>
+		</table>
+	</form>
+</div>
+<div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="editOfferForm">
+                <table>
+                    <tr>
+                        <td><h3>Specify room offer: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="offerName" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Add offer" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

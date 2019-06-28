@@ -1,0 +1,872 @@
+body{
+	margin: 0px;
+	background-image: url('../images/background.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+
+
+
+
+.main{
+	margin: auto;
+	swidth: 1200px;
+	font-size: 20px;
+}
+
+.header
+{  
+	background-color: #C5C6C7;
+	height:95px;
+	text-align: center;
+	
+}
+
+
+#nav
+{
+	background-color: #123C69;
+	height: 35px;
+	font-size: 25px;
+	font-weight:bold;
+	font:Tahoma; 
+	margin-bottom: 60px;
+}
+
+#nav ul
+{
+	list-style:none;
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0;
+	text-align: center;
+}
+
+#nav ul a
+{
+	display:block;
+	color:white;
+	text-decoration:none;
+	font-weight:700;
+	font-size:20px;
+	line-height:32px;
+	padding:0 15px;
+
+}
+
+
+#nav ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+
+
+#nav ul li:hover
+{
+	background:#f6f6f6;
+	
+}
+#nav ul li a:hover
+{
+	
+	color: black;	
+}
+
+#nav ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background:#fff;
+	padding:0;
+}
+
+#nav ul ul li
+{
+	float:none;
+	width:200px;
+}
+
+#nav ul ul a
+{
+	line-height:120%;
+	padding:10px 15px;
+	color: black;
+}
+
+#nav ul ul ul
+{
+	top:0;
+	left:100%;
+}
+
+#nav ul li:hover > ul
+{
+	display:block;
+}
+
+
+
+
+table.mainTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  font:Tahoma;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  align: "center";
+}
+table.mainTable td, table.mainTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.mainTable tbody td {
+  font-size: 20px;
+}
+table.mainTable tr:nth-child(even) {
+  background: #FFFFFF;
+}
+table.mainTable thead {
+  background: #123C69;
+  border-bottom: 2px solid #444444;
+}
+table.mainTable thead th {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.mainTable thead th:first-child {
+  border-left: none;
+}
+
+
+* {
+            box-sizing: border-box;
+        }
+
+        .middle_container{
+            position:sticky;
+            top: 20px;
+            font-family: Arial;
+            width:800px;
+        }
+        
+        .rating {
+            position:sticky;
+            top: 100px;
+            left: 450px;
+            font-family: Arial;
+            max-width: 400px; /* Max width */
+            padding: 20px;
+        }
+
+        .image{
+            width:450px;
+            height:auto;
+            position:sticky;
+            top:100px;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .heading {
+            font-size: 20px;
+            margin-right: 25px;
+        }
+
+        .fa {
+            font-size: 30px;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        /* Three column layout */
+        .side {
+            float: left;
+            width: 15%;
+            margin-top: 10px;
+        }
+
+        .middle {
+            margin-top: 10px;
+            float: left;
+            width: 70%;
+        }
+
+        /* Place text to the right */
+        .right {
+            text-align: right;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The bar container */
+        .bar-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            color: white;
+        }
+
+        .bar-1 {
+            width: 0%;
+            height: 18px;
+            background-color: #f44336;
+        }
+
+        @media (max-width: 400px) {
+            .side, .middle {
+                width: 100%;
+            }
+
+            .right {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: Arial;
+        }
+
+        /* Style the tab */
+        .tab {  
+            position:absolute;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            left: 10%;
+            right:10%;
+            min-height: 53px;
+        }
+        
+        .green_tab_button {  
+            background-color: #56f442;
+            right:0%;
+            position:absolute;
+            border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                font-size: 17px;
+                color:black;
+        }
+
+        .tab_table{
+            position:absolute;
+            left: 5%;
+        }
+
+        .tab_table td{
+            padding: 10px;
+        }
+
+            /* Style the buttons inside the tab */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                font-size: 17px;
+                color:black;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: #ddd;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: #ccc;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            position:absolute;
+            top:19%;
+            left: 10%;
+            right:10%;
+            overflow:scroll;
+            background-color:white;
+            border-top: none;
+            min-height:550px;
+        }
+
+        .white_middle_container {
+            position:absolute;
+            top:19%;
+            left: 5%;
+            right:5%;
+            overflow:scroll;
+            background-color:white;
+            border: 1px solid #ccc;
+            border-top: none;
+            min-height:550px;
+        }
+
+        .content_table{
+            left: 2%;
+            position:absolute;
+        }
+        .content_table td, tr{
+            padding: 5px;
+            min-width: 300px;
+        }
+        
+        content_table2{
+            left: 2%;
+            position:absolute;
+        }
+        .content_table2 td, tr{
+            padding: 5px;
+            min-width: 300px;
+        }
+
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0,0,0);
+          background-color: rgba(0,0,0,0.4);
+        }
+        
+        .mapModal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0,0,0);
+          background-color: rgba(0,0,0,0.4);
+        }
+        
+        .mapModal-content {
+          background-color: white;
+          margin: 15% auto;
+          padding: 20px;
+          width: 600px; 
+          height: 400px
+        }
+
+        .modal-content {
+          background-color: white;
+          margin: 15% auto;
+          padding: 20px;
+          width: 650px; 
+          color:black;
+        }
+
+        .modal input{
+            width: 500px;
+            padding:5px;
+        }
+
+        .modal textarea{
+            width:100%;
+            height:200px;
+        }
+
+        .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        .edit_input{
+        }
+        .edit_input input{
+            width:100%;
+        }
+
+        .room_display{
+            width:400px;
+            height:auto;
+        }
+
+        .new_room_table{
+            right:3%;
+            position:absolute;
+        }
+
+        .new_room_table input{
+            width: 400px;
+            padding: 3px;
+        }
+
+        .new_room_table textarea{
+            width: 100%;
+            height: 100px;
+        }
+
+        .info_table{
+            font:25px;
+        }
+
+        .form_table{
+            font:25px;
+            left:25%;
+            right:25%;
+            position:absolute;
+        }
+        
+        .form_table td{
+        	font:25px;
+        }
+
+        .form_table input, select{
+            width:500px;
+        }
+        .form_table textarea{
+            width:500px;
+            height:250px;
+        }
+        
+        .ombre_div{
+        	background: linear-gradient(to bottom, #005963 0%, #12b0cc 100%);
+        	width:50%;
+        	left:25em;
+            right:25em;
+            top:5%;
+            position:relative;
+            padding:50px;
+            color:white;
+            overflow:hidden;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        
+        .ombre_div_66{
+        	background: linear-gradient(to bottom, #005963 0%, #12b0cc 100%);
+        	width:60%;
+        	left:20%;
+            right:20%;
+            top:5%;
+            position:relative;
+            padding:50px;
+            color:white;
+            overflow:hidden;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        
+        .ombre_table_flight{
+            font:25px;
+            color:white;
+            overflow:hidden;
+        }
+        
+        .ombre_table_flight td{
+        	font:25px;
+        }
+
+        .ombre_table_flight input, select{
+            width:350px;
+            padding:5px;
+            color:black;
+        }
+        
+        .ombre_table{
+            font:25px;
+            color:white;
+            overflow:hidden;
+        }
+        
+        .ombre_table td{
+        	font:25px;
+        }
+
+        .ombre_table input, select{
+            width:500px;
+            padding:10px;
+            color:black;
+        }
+        .ombre_table textarea{
+            width:500px;
+            height:150px;
+            color:black;
+        }
+        
+        .ombre_table a{
+        	color:white;
+        }
+
+        .small_image{
+            width:250px;
+            height:auto;
+        }
+
+        .min{}
+        .min td, tr{
+            padding:0px;
+        }
+
+        .blue_middle_container {
+            position:absolute;
+            top:19%;
+            left: 10%;
+            right:10%;
+            overflow:hidden;
+            background-color:white;
+            border-top: none;
+            min-height:550px;
+        }
+        
+        .blue_middle_container_scroll {
+            position:absolute;
+            top:19%;
+            left: 10%;
+            right:10%;
+            overflow:scroll;
+            background-color:white;
+            border-top: none;
+            min-height:550px;
+        }
+
+        .middle_table{
+            position:relative;
+            left:2em;
+            right:2em;
+            width:90%;
+        }
+        .middle_table td{
+            padding: 10px;
+            min-width: 50px;
+        }
+
+        .central{
+            text-align:center;
+        }
+
+        .hover_image{
+            width:250px;
+            height:auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        .hover_image :hover{
+            opacity: 0.3;
+        }
+
+        .tirkiz_table{
+            position:relative;
+            left:0px;
+            right:0px;
+            width:100%;
+            height:auto;
+        }
+
+        .tirkiz_table_content{
+            padding:9px;
+            background: linear-gradient(to bottom, #ffffff 0%, #33ccff 100%);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            
+        }
+
+        .tirkiz_table_content input, select{
+            width:350px;
+            color:black;
+            padding:3px;
+        }
+        .tirkiz_table_content select{
+            width:250px;
+            color:black;
+            padding:3px;
+        }
+        .tirkiz_table td{
+            color:black;
+            min-width:100px;
+        }
+
+        .company_image{
+            width:300px;
+            height:auto;
+        }
+
+        .zebra{
+            width:100%;
+         }
+        .zebra th,td{
+            text-align: left;
+            padding:5px;
+            min-width:300px;
+        }
+
+        .ombre_tab{
+            display: none;
+        }
+
+        .ombre_table button{
+            color:black;
+            min-width:50px;
+
+        }
+
+        .submit_button{}
+        .submit_button input{
+            color:black;
+            width:50px;
+            padding:1px;
+        }
+
+        .left_table{
+            width:45%;
+            left:30%;
+            position:relative;
+            height:100%;
+            overflow:scroll;
+        }
+
+        .left_table_image{
+            width:100%;
+            height:auto;
+        }
+
+        .ombre_top{
+        	background: linear-gradient(to top, #ffffff  0%, #33ccff 100%);
+        	width:100%;
+            top:0%;
+            position:relative;
+        }
+        
+        .table85{
+        	left:13%;
+        	right:13%;
+        	top:10%;
+            position:absolute;
+            max-width: 74%;
+            background-color:#eff1f4;
+        }
+        
+        .table85 tr{
+        	max-width: 95%;
+        }
+        
+        .table85 hr{
+        	border-color:black;
+        }
+        
+        .criteria_table{
+        	color:white;
+        	position:absolute;
+        	right:0px;
+        	max-width:30%;
+        	background: linear-gradient(to bottom, #005963 0%, #12b0cc 100%);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        
+        .criteria_table input{
+        	color:black;
+        }
+        
+        .criteria_table select{
+        	color:black;
+        	width:95%;
+         }
+        
+        .criteria_table_width{
+        	color:white;
+        	position:absolute;
+        	right:0px;
+        	width:45%;
+        	background: linear-gradient(to bottom, #005963 0%, #12b0cc 100%);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        
+        .criteria_table_width input{
+        	color:black;
+        }
+        
+        .addOffRight{
+        	position:absolute;
+        	top:0px;
+        	right:0px;
+        	width:auto;
+        }
+        
+                .greenButton {
+        	background-color: #56f442;
+        	color: black;
+        	min-width:150px;
+        	border: none;
+        	text-align: center;
+        } /* Green */
+        
+        .blueButton {
+        	background-color: #60d2ff;
+        	color: black;
+        	min-width:150px;
+        	border: none;
+        	text-align: center;
+        } /* Blue */
+        
+        .redButton {
+        	background-color: #ff0c00;
+        	color: white;
+        	min-width:150px;
+        	max-width: 50%;
+        	border: none;
+        	text-align: center;
+        	margin-left:15% auto;
+        	margin-right:15% auto;
+        } /* Red */
+        
+        .reservation_modal_content{
+        	background-color: white;
+            margin: 5% auto;
+            padding: 2px;
+            width: 850px; 
+            color:black;
+        }
+        
+        .modal_picture{
+        	width: 100%;
+        }
+        
+        .modal_ombre{
+        	background: linear-gradient(to bottom, #005963 0%, #12b0cc 100%);
+        }
+        
+        .reservation_table{
+			border: 1px solid #ddd;
+        }
+        
+        .reservation_table th, td {
+		  text-align: left;
+		  padding: 5px;
+		}
+        
+        .reservation_table tr:nth-child(even) {
+			  background-color: #f2f2f2
+		}
+		
+		.custom_checkbox{
+			width:5px;
+		}
+		
+		.tirkiz_div{
+        	background: #42e5f4;
+        	top:20%;
+        	left:25%;
+        	right:25%;
+        	width:50%;
+            position:relative;
+            padding:50px;
+            color:black;
+            overflow:hidden;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        
+        .tirkiz_div input select{
+        	width:60%;
+        	color:black;
+        }
+        
+        .sub_table{
+        	margin-right: 20%;
+        	margin-left: 20%;
+        }
+        
+        .fast_modal_content{
+        	background-color: white;
+            margin: 5% auto;
+            padding: 2px;
+            width: 550px; 
+            color:black;
+        }
+        
+        
+        .green_box{
+        	background-color: #56f442;
+        	position:relative;
+        	padding:15px;
+        	width:100%;
+        	height:auto;
+        	margin: 5% auto;
+        	
+        }
+        
+        .blue_box{
+        	background-color: #60d2ff;
+        	position:relative;
+        	padding:15px;
+        	width:100%;
+        	height:auto;
+        	margin: 5% auto;
+        }
+        
+        .discount{
+        	font-size: 30px;
+        }
+        
+        .fency_modal{
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          border: 2px black;
+          background-color: rgb(0,0,0);
+          background-color: rgba(0,0,0,0.4);
+        }
+        
+        .fency_modal_content{
+        	background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            max-width: 550px; 
+            color:black;
+        }
+        
+        .ok_button{
+        	background-color: #56f442;
+        	color: black;
+        	min-width:150px;
+        	border: none;
+        	text-align: center;
+        	margin-left:50%;
+        	height: 20px;
+        }
+        
+        .notification{
+        	padding: 30px;
+        	color:blue;
+        	background-color:rgba(0,0,255,0.3);
+        	width:90%;
+        }
+        

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sys admin - home page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/hotelAdmin.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            	<li><a href="hotelAdmin-addRoom.html"><span class="glyphicon glyphicon-bed"></span> Add Room</a></li>
+            	<li><a href="hotelAdmin-addFastReservation.html"><span class="glyphicon glyphicon-calendar"></span> Add Fast Reservation</a></li>
+                <li><a href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-bed"></span> Hotel's Profile</a></li>
+                <li><a href="userProfile.html"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li class="dropdown">
+	        		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	        		<span class="glyphicon glyphicon-stats"></span> Reports<span class="caret"></span></a>
+	        		<ul class="dropdown-menu">
+					  <li><a href = "hotelAdmin-report1.html" id = "chart_btn1" > Visits Report </a></li>
+					  <li><a href = "hotelAdmin-chartDate.html" id = "chart_btn2" > Income Report </a></li>
+	        		</ul>
+        		</li>
+                <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+	<div class="blue_middle_container">
+    	
+		<canvas id="myChart1" width="400" height="150"></canvas>
+		
+		<canvas id="myChart2" width="400" height="150"></canvas>
+		
+		<canvas id="myChart3" width="400" height="150"></canvas>
+    </div>
+     
+</body>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
+<script>
+var TOKEN_KEY = 'jwtToken';
+display();
+function display(){
+	
+	$.ajax({
+        type: 'GET',
+        url: '/api/hotelReport',
+        headers : createAuthorizationTokenHeader(TOKEN_KEY),
+        contentType: 'text/plain',
+        success: function(data){
+        	var daily = [];
+        	var weekly = [];
+        	var month = [];
+        	var labels1 = [];
+        	var color = [];
+        	
+        	var i1 = 0;
+        	$.each(data.daily, function(index, day){
+        		daily.push(day);
+        		var lab = data.daily2[index];
+        		labels1.push(lab);
+        		color.push('rgba(255, 99, 132, 0.4)');
+            })
+       
+     		var ctx1 = document.getElementById("myChart1");
+     		var myChart = new Chart(ctx1, {
+     		  type: 'bar',
+     		  data: {
+     		    labels: labels1,
+     		    datasets: [{
+     		      label: 'Daily report',
+     		      data: daily,
+     		      backgroundColor: color,
+     		      borderColor: color,
+     		      borderWidth: 1
+     		    }]
+     		  },
+     		  options: {
+     		    scales: {
+     		      yAxes: [{
+     		        ticks: {
+     		          beginAtZero: true
+     		        }
+     		      }]
+     		    }
+     		  }
+     		});
+     		
+     		labels1 = [];
+     		color = [];
+     		
+     		i1 = 0;
+        	$.each(data.weekly, function(index, week){
+        		weekly.push(week);
+        		var lab = data.weekly2[index];
+        		labels1.push(lab);
+        		color.push('rgba(255, 99, 132, 0.4)');
+            })
+     		
+     		var ctx2 = document.getElementById("myChart2");
+     		var myChart = new Chart(ctx2, {
+     		  type: 'bar',
+     		  data: {
+     		    labels: labels1,
+     		    datasets: [{
+     		      label: 'Weekly report',
+     		      data: weekly,
+     		      backgroundColor: color,
+     		      borderColor: color,
+     		      borderWidth: 1
+     		    }]
+     		  },
+     		  options: {
+     		    scales: {
+     		      yAxes: [{
+     		        ticks: {
+     		          beginAtZero: true
+     		        }
+     		      }]
+     		    }
+     		  }
+     		});
+     		
+     		labels1 = [];
+     		color = [];
+     		
+     		i1 = 0;
+        	$.each(data.annualy, function(index, mon){
+        		month.push(mon);
+        		var lab = data.annualy2[index];
+        		labels1.push(lab);
+        		color.push('rgba(255, 99, 132, 0.4)');
+            })
+     		
+     		var ctx3 = document.getElementById("myChart3");
+     		var myChart = new Chart(ctx3, {
+     		  type: 'bar',
+     		  data: {
+     		    labels: labels1,
+     		    datasets: [{
+     		      label: 'Monthly report',
+     		      data: month,
+     		      backgroundColor: color,
+     		      borderColor: color,
+     		      borderWidth: 1
+     		    }]
+     		  },
+     		  options: {
+     		    scales: {
+     		      yAxes: [{
+     		        ticks: {
+     		          beginAtZero: true
+     		        }
+     		      }]
+     		    }
+     		  }
+     		});
+     	}
+	})
+	
+}
+
+
+
+
+    </script>
+</html>

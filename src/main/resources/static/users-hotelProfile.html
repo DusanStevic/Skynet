@@ -1,0 +1,138 @@
+﻿<html>
+<head>
+    <title>Hotel profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/displayHotelInfo.js"></script>
+    <script type="text/javascript" src="js/reservation.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse" id="menubar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+     			<li><a href="#login" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">About</button>
+        <button class="tablinks" onclick="openCity(event, 'Rooms')" id="roomsOpen">Rooms</button>
+        <button class="tablinks" onclick="openCity(event, 'FastReservations')" id="reservationsOpen">Fast Reservations</button>
+        <button class="tablinks" onclick="openCity(event, 'Other_offers')" id="offersOpen">Other offers</button>
+    </div>
+
+    <div class="tabcontent" id="Home">
+        <table class="content_table" id="hotelInfo">
+            
+        </table>
+    </div>
+
+    <div id="Rooms" class="tabcontent">
+    	<form id="searchRoomsForm">
+	    	<table class="criteria_table" id="offersCriteria">
+	    		<tr><td><h2>Make your search easier!</h2></td></tr>
+	    		<tr><td><p>Choose what will your room offer:</p></td></tr>
+	        </table>
+        </form>
+        <table class="content_table" id="roomsDisp">
+
+        </table>
+    </div>
+   
+
+    <div id="Other_offers" class="tabcontent">
+        <table class="table85" id="hotelOffers">
+        </table>
+    </div>
+    
+    <div class="tabcontent" id="FastReservations">
+        <table id="fastDisp"></table>
+    </div>
+    
+    <div id="modal2" class="modal">
+	   <div class="reservation_modal_content" id="res">
+	   	<span id="close">&times;</span>
+	       <table id="roomShow"></table>
+	       <table id="offersShow"></table>
+	       <table id="TotPrice"></table>
+	       <table id="submitReservation" class="sub_table"></table>
+	   </div>
+    </div>
+    
+	<div id="modal" class="modal">
+        <div class="ombre_div">
+            <span id="closeLogin">&times;</span>
+            <form id ="loginForm">
+                <table class="ombre_table">
+                    <tr>
+                        <td><h3>Username: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="username"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Password: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" id="password"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Log in" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    <div id="fency" class="fency_modal">
+        <div class="fency_modal_content">
+                <table id="fencyBody">
+                </table>
+                
+                <table id="fencyButtons"></table>
+        </div>
+    </div>
+    <script>
+    document.getElementById("defaultOpen").click();
+    
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        if(cityName == "Home"){
+      	  localStorage.setItem("tab", "defaultOpen");
+        }
+        else if(cityName == "Rooms"){
+      	  localStorage.setItem("tab", "roomsOpen");
+        }
+        else if(cityName == "Other_offers"){
+      	  localStorage.setItem("tab", "offersOpen");
+        }
+        else if(cityName == "FastReservations"){
+      	  localStorage.setItem("tab", "reservationsOpen");
+        }
+        evt.currentTarget.className += " active";
+      }
+    </script>
+</body>
+</html>

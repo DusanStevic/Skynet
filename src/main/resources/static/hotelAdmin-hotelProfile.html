@@ -1,0 +1,231 @@
+﻿<html>
+<head>
+    <title>Hotel Admin profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/changePassword.js"></script>
+    <script type="text/javascript" src="js/hotelAdmin.js"></script>
+    <script type="text/javascript" src="js/uploadFile.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+            	<li><a href="hotelAdmin-addRoom.html"><span class="glyphicon glyphicon-bed"></span> Add Room</a></li>
+            	<li><a href="hotelAdmin-addFastReservation.html"><span class="glyphicon glyphicon-calendar"></span> Add Fast Reservation</a></li>
+                <li><a href="hotelAdmin-hotelProfile.html"><span class="glyphicon glyphicon-bed"></span> Hotel's Profile</a></li>
+                <li><a href="userProfile.html"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li class="dropdown">
+	        		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	        		<span class="glyphicon glyphicon-stats"></span> Reports<span class="caret"></span></a>
+	        		<ul class="dropdown-menu">
+					  <li><a href = "hotelAdmin-report1.html" id = "chart_btn1" > Visits Report </a></li>
+					  <li><a href = "hotelAdmin-chartDate.html" id = "chart_btn2" > Income Report </a></li>
+	        		</ul>
+        		</li>
+                <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">About</button>
+        <button class="tablinks" onclick="openCity(event, 'Rooms')" id="roomsOpen">Rooms</button>
+        <button class="tablinks" onclick="openCity(event, 'FastReservations')" id="reservationsOpen">Fast Reservations</button>
+        <button class="tablinks" onclick="openCity(event, 'Other_offers')" id="offersOpen">Hotel's offers</button>
+    </div>
+
+    <div class="tabcontent" id="Home">
+        <table class="content_table" id="hotelInfo">
+            
+        </table>
+    </div>
+
+    <div id="Rooms" class="tabcontent">
+    	<form id="searchRoomsForm">
+	    	<table class="criteria_table" id="offersCriteria">
+	    		<tr><td><h2>Make your search easier!</h2></td></tr>
+	    		<tr><td><p>Choose what will your room offer:</p></td></tr>
+	        </table>
+        </form>
+        <table class="content_table" id="roomsDisp">
+
+        </table>
+    </div>
+    
+    <div class="tabcontent" id="FastReservations">
+    	<div id="fastHeder"></div>
+        <table class="content_table" id="fastRoomsDisp">
+
+        </table>
+    </div>
+   
+
+    <div id="Other_offers" class="tabcontent">
+        <table class="table85" id="hotelOffers">
+        </table>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="editHotelForm">
+                <table>
+                	<tr>
+                        <td><input type="hidden" id="hotelId"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Name: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelName"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Address: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelAdress"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Description: </h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="hotelDesc"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Save changes" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div> 
+    
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form enctype="multipart/form-data" id="uploadImageForm" name="uploadImageForm">
+                <table>
+                	<tr>
+                        <td><h3>Image: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="file" name="file" /></td>
+                    </tr>
+                    <tr>
+                    	<td><input type="submit" value="Upload"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close4">&times;</span>
+            <form id="addHotelOfferForm">
+                <table>
+                	<tr>
+                        <td><h3>Name of hotel offer: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelOfferName" /></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Price of hotel offer: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelOfferPrice" /></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Hotel offer description: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><textarea id="hotelOfferDesc" ></textarea></td>
+                    </tr>
+                    <tr>
+                    	<td><input type="submit" value="Add hotel offer"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close5">&times;</span>
+            <form id="editOfferForm">
+                <table>
+                	<tr>
+                        <td><h3>Name of hotel offer: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelOfferNameEdit" /></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Price of hotel offer: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelOfferPriceEdit" /></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Hotel offer description: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><textarea id="hotelOfferDescEdit" ></textarea></td>
+                    </tr>
+                    <tr>
+                    	<td><input type="submit" value="Edit hotel offer"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    <div id="fastModal" class="modal">
+    <div class="modal-content">
+            <table id="fastInfoShow"></table>
+        </div>
+	   
+    </div>
+
+    <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      if(cityName == "Home"){
+    	  localStorage.setItem("tab", "defaultOpen");
+      }
+      else if(cityName == "Rooms"){
+    	  localStorage.setItem("tab", "roomsOpen");
+      }
+      else if(cityName == "Other_offers"){
+    	  localStorage.setItem("tab", "offersOpen");
+      }
+      else if(cityName == "FastReservations"){
+    	  localStorage.setItem("tab", "reservationsOpen");
+      }
+      evt.currentTarget.className += " active";
+    }
+    </script>
+</body>
+</html>

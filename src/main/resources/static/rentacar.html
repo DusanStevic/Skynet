@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="lib/toastr/toastr.min.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+<script type="text/javascript" src="js/rentacar.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/companies.css" />
+<title>Rent-a-car</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+    </ul>
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="index.html" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+	<h1>Rent-A-Car search:</h1>
+	<div class="search-div">
+		<form id="formsrc">
+			<table align="center">
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name" id="srcRacName"></td>
+				
+					<td>Address:</td>
+					<td><input type="text" name="address" id="srcRacAddr"></td>
+			
+					<td>Pick up:</td>
+					<td><input type="date" name="pickUp" id="srcRacPickUp" required></td>
+			
+					<td>Drop off:</td>
+					<td><input type="date" name="dropOff" id="srcRacDropOff" required></td>
+					<td></td>
+					<td><input type="submit" value="Search"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div class="companies-div" id="racsDiv"></div>
+</body>
+
+</html>

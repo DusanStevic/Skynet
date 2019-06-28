@@ -1,0 +1,587 @@
+<html>
+<head>
+    <title>Rent-a-car Admin profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery.min.js"></script>
+<link href="toastr.css" rel="stylesheet" />
+<script type="text/javascript" src="toastr.js"></script>
+<script src="bootstrap.min.js"></script>
+<script type="text/javascript" src="js/rentacaradmin.js"></script>
+
+<script src="chart.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/changePassword.js"></script>
+    <script type="text/javascript" src="js/racAdmin.js"></script>
+    <script type="text/javascript" src="js/uploadFile.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+ <style>
+body {
+	background-image: url(../images/background.jpg);
+	font-family: Arial;
+	background-size: 100%;
+}
+
+
+
+/* Style the buttons inside the tab */
+.tab button {
+	color: black;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 8px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="rentacaradmin.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+	    		<li><a href="userProfile1.html"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">About</button>
+        <button id="addBranchButton" class="tablinks"	
+			onclick="openCity(event, 'addBranch')">Add branch</button>
+		<button id="editBranchesButton" class="tablinks"
+			onclick="openCity(event, 'editBranch')">Edit branch</button>
+		<button id="removeBranchesButton" class="tablinks"
+			onclick="openCity(event, 'deleteBranch')">Delete branch</button>
+		<button id="addCarsButton" class="tablinks"
+			onclick="openCity(event, 'addCar')">Add car</button>
+		<button id="editCarsButton" class="tablinks"
+			onclick="openCity(event, 'editCar')">Edit car</button>
+		<button id="removeCarsButton" class="tablinks"
+			onclick="openCity(event, 'deleteCar')">Delete car</button>
+			<button id="fastResButton" class="tablinks"
+			onclick="openCity(event, 'fastRes')">Fast reservation</button>
+		<button id="showCarsOnFastResButton" class="tablinks"
+			onclick="openCity(event, 'carsOnFastRes')">Cars on fast reservation</button>
+		<button id="reportsButton" class="tablinks"
+			onclick="openCity(event, 'reports')">Reports</button>
+    </div>
+
+    <div class="tabcontent" id="Home">
+        <table class="content_table" id="hotelInfo">
+            
+        </table>
+    </div>
+
+
+  <div id="reports" class="tabcontent">
+		<div class="container">
+			<h2>Reports:</h2>
+			
+			<div class="container">
+				<table>
+					<tr><td id = "globalScore"></td></tr>
+				</table>
+				<br>
+				<h2>Grades of cars</h2>
+				<table  class="table table-hover"  id = "carsGradesTable">
+				
+				</table>
+				<p id="messageCarsGrades"></p>
+			</div>
+			
+
+			<hr style="border-color: black">
+			<div class="container">
+				<h3>Amounts of this rentacar in concrete period:</h3>
+				
+				<div class="container">
+					Start date: <input type="date" name="" value=""
+						 id="amountSearchStartDate" /> End
+					date: <input type="date" name="" value=""
+						 id="amountSearchEndDate" />
+					<button style="background: #69a7c5; color: white"
+						id="findAmountRentacar" class="btn btn-primary">Search</button>
+				</div>
+				<table>
+					<tr>
+						<td><h4>Amount of money in period &nbsp</h4></td>
+						<td><h4 id="amountRentacarValue">0</h4></td>
+					</tr>
+				</table>
+			</div>
+			
+			
+</div>
+ </div>
+
+ 
+
+	<div id="fastResFormular" class="tabcontent">
+		<div class="container">
+		<input type="hidden" id="carId">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="startDateFast">Start date:
+			</label>
+			<div class="col-sm-10">
+				<input type="date" class="form-control" id="startDateFast"
+					placeholder="Insert start date" name="startDateFast">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="endDateFast">Start date:
+			</label>
+			<div class="col-sm-10">
+				<input type="date" class="form-control" id="endDateFast"
+					placeholder="Insert end date" name="endDateFast">
+			</div>
+		</div>
+				
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="priceFast">Price per day:
+			</label>
+			<div class="col-sm-10">
+				<input type="number" class="form-control" id="priceFast"
+					placeholder="Insert price per day" name="priceFast">
+			</div>
+		</div>
+		
+		<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button style="background: #69a7c5; color: white" type="submit"
+							class="btn btn-default" id="submitFastFormular">Save</button>
+					</div>
+				</div>
+		<div class="form-group">
+					
+						<button style="background: #69a7c5; color: white" type="submit"
+							class="btn btn-default" id="backToFastResCars">Back</button>
+				
+				</div>
+		</div>
+		
+		
+	</div>
+	<div id="fastRes" class="tabcontent">
+		<div class="container">
+		
+			<h2>Cars</h2>
+			<table  class="table table-hover"  id = "tableOfCarsForFastRes">
+				
+			</table>
+			<p class="message"></p>
+		</div>
+	</div>
+	
+	<div id="carsOnFastRes" class="tabcontent">
+		<div class="container">
+		
+			<h2>Cars on fast reservation</h2>
+			<table  class="table table-hover"  id = "tableOfCarsOnFastRes">
+				
+			</table>
+			<p class="message"></p>
+		</div>
+	</div>
+	
+
+	
+	
+	
+
+	
+	<div id="addCar" class="tabcontent">
+		<div class="container">
+			<h2>Adding a car:</h2>
+			<form class="form-horizontal" action="#" method="post" id="form2">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addCarName">Name:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="addCarName"
+							 name="addCarName">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addCarPrice">Price:
+					</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="addCarPrice"
+							 name="addCarPrice">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addCarYear">Year:
+					</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="addCarYear"
+							 name="addCarYear">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addCarType">Car type:
+					</label>
+					<div class="col-sm-10">
+						<select id = "addCarType">
+							<option value="Family">Family</option>
+							<option value="Sports">Sports</option>
+							<option value="Van">Van</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addCarBrand">Brand:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="addCarBrand"
+							 name="addCarBrand">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addCarModel">Model:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="addCarModel"
+							 name="addCarModel">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="addCarSeats">Seats:
+					</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="addCarSeats"
+							 name="addCarSeats">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button style="background: #69a7c5; color: white" type="submit"
+							class="btn btn-default" id="button323">Submit</button>
+					</div>
+				</div>
+			</form>
+			<br>
+		</div>
+	</div>
+
+	<div id="addBranch" class="tabcontent">
+		<div class="container">
+			<h2>Adding branch:</h2>
+			<form class="form-horizontal" action="#" method="post" id="addBranchForm">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="branchCity">City:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="branchCity"
+							name="branchCity">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="branchAddress">Address:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="branchAddress"
+						 name="branchAddress">
+					</div>
+				</div>
+			
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button style="background: #69a7c5; color: white" type="submit"
+							class="btn btn-default" id="button3">Submit</button>
+					</div>
+				</div>
+			</form>
+			<br>
+		</div>
+	</div>
+	<div id="deleteCar" class="tabcontent">
+		<div class="container">
+			<h2>List of car in service:</h2>
+			<table class="table table-hover" id="tableOfCarsForDelete">
+
+			</table>
+			<p class="message"></p>
+			<br>
+		</div>
+	</div>
+	
+	<div id="deleteBranch" class="tabcontent">
+		<div class="container">
+			<h2>List of branches in service:</h2>
+			<table class="table table-hover" id="tableOfBranchesForDelete">
+
+			</table>
+			<p class="messageBranchesDelete"></p>
+			<br>
+		</div>
+	</div>
+
+	<div id="editCar" class="tabcontent">
+		<div class="container">
+			<h2>List of cars in service:</h2>
+
+
+			<table class="table table-hover" id="tableOfCarsForEdit">
+
+			</table>
+			<p class="message"></p>
+			<br>
+		</div>
+	</div>
+	
+	<div id="editBranch" class="tabcontent">
+		<div class="container">
+			<h2>List of branches in service:</h2>
+
+
+			<table class="table table-hover" id="tableOfBranchesForEdit">
+
+			</table>
+			<p class="messageBranchesDelete"></p>
+			<br>
+		</div>
+	</div>
+
+	<div id="editCarFormular" class="tabcontent">
+		<div class="container">
+			<h2>Editing car:</h2>
+			<form class="form-horizontal" action="#" method="post"
+				id="editCarForm">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="carNameEdit">Name:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="carNameEdit"
+							name="carNameEdit">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="carPriceEdit">Price:
+					</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="carPriceEdit"
+							name="carPriceEdit">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="carYearEdit">Year:
+					</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="carYearEdit"
+							 name="carYearEdit">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="editCarType">Car type:
+					</label>
+					<div class="col-sm-10">
+						<select id = "editCarType">
+							<option value="Family">Family</option>
+							<option value="Sports">Sports</option>
+							<option value="Van">Van</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="carBrandEdit">Brand:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="carBrandEdit"
+							 name="carBrandEdit">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="carModelEdit">Model:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="carModelEdit"
+							name="carModelEdit">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="carSeatsEdit">Seats:
+					</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="carSeatsEdit"
+							 name="carSeatsEdit">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button style="background: #69a7c5; color: white" type="submit"
+							class="btn btn-default" id="buttonSubmitEditCar">Submit</button>
+					</div>
+				</div>
+				<input type="hidden" id="carIdEdit">
+			</form>
+		</div>
+	</div>
+	
+	<div id="editBranchFormular" class="tabcontent">
+		<div class="container">
+			<h2>Editing branch:</h2>
+			<form class="form-horizontal"
+				id="editBranchForm">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="branchCityEdit">City:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="branchCityEdit"
+							 name="branchCityEdit">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="branchAddressEdit">Address:
+					</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="branchAddressEdit"
+							name="branchAddressEdit">
+					</div>
+				</div>
+				<input type="hidden" value="" id="branchIdEdit">
+				
+				
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button style="background: #69a7c5; color: white" type="submit"
+							class="btn btn-default" id="buttonSubmitEditBranch">Submit</button>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+	
+	
+
+
+
+	<script>
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+						" active", "");
+			}
+			$('#' + cityName).slideToggle(1000);
+			evt.currentTarget.className += " active";
+		}
+	</script>
+
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="editHotelForm">
+                <table>
+                	<tr>
+                        <td><input type="hidden" id="hotelId"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Name: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelName"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Address: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="hotelAdress"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Description: </h3></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="hotelDesc"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Save changes" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div> 
+    
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form enctype="multipart/form-data" id="uploadImageForm" name="uploadImageForm">
+                <table>
+                	<tr>
+                        <td><h3>Image: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="file" name="file" /></td>
+                    </tr>
+                    <tr>
+                    	<td><input type="submit" value="Upload"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    
+    
+
+    <script>
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      if(cityName == "Home"){
+    	  localStorage.setItem("tab", "defaultOpen");
+      }
+     
+      evt.currentTarget.className += " active";
+    }
+    </script>
+</body>
+</html>

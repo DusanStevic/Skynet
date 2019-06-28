@@ -1,0 +1,127 @@
+<html>
+<head>
+    <title>Rent-a-car profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/milica1.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/racDisplay.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+        <link rel="stylesheet" href="bootstrap.min.css">
+<script src="jquery.min.js"></script>
+<link href="toastr.css" rel="stylesheet" />
+<script type="text/javascript" src="toastr.js"></script>
+<script src="bootstrap.min.js"></script>
+<script type="text/javascript" src="js/rentacaradmin.js"></script>
+
+<script src="chart.min.js"></script>
+    
+    
+</head>
+<body>
+    <nav class="navbar navbar-inverse" id="menubar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+     			<li><a href="#login" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">About</button>
+        <button class="tablinks" onclick="openCity(event, 'Branches')">Branches</button>
+        <button class="tablinks" onclick="openCity(event, 'Cars')">Cars</button>
+        <button class="tablinks" onclick="openCity(event, 'FastReservations')">Fast Reservations</button>
+    </div>
+
+    <div class="tabcontent" id="Home">
+        <table class="content_table" id="racInfo">
+            
+        </table>
+    </div>
+
+    <div id="Cars" class="tabcontent">
+    <h1>Search cars:</h1>
+    <h1> </h1>
+				<div class="container">
+					Lowest
+					price: <input type="number" name="" value=""
+						id="carSearchLowestPrice" />
+					Highest price: <input type="number" name="" value=""
+						 id="carSearchHighestPrice" />
+					<button style="background: #69a7c5; color: white"
+						class="searchCarButton" class="btn btn-primary">Search</button>
+				</div>
+<h1> </h1><h1> </h1>
+				<table style="background-color:#eff1f4;" class="table" id="tableAllCar">
+				</table>
+     
+    </div>
+   
+
+    <div id="Branches" class="tabcontent">
+        <table class="table85" id="branches">
+        
+        </table>
+    </div>
+    
+    <div class="tabcontent" id="FastReservations">
+        <table class="table85" id="fast">
+        
+        </table>
+    </div>
+    
+	<div id="modal" class="modal">
+        <div class="ombre_div">
+            <span id="closeLogin">&times;</span>
+            <form id ="loginForm">
+                <table class="ombre_table">
+                    <tr>
+                        <td><h3>Username: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="username"/></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Password: </h3></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" id="password"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Log in" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <script>
+    document.getElementById("defaultOpen").click();
+    
+    function openCity(evt, cityName) {
+    	  var i, tabcontent, tablinks;
+    	  tabcontent = document.getElementsByClassName("tabcontent");
+    	  for (i = 0; i < tabcontent.length; i++) {
+    	    tabcontent[i].style.display = "none";
+    	  }
+    	  tablinks = document.getElementsByClassName("tablinks");
+    	  for (i = 0; i < tablinks.length; i++) {
+    	    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    	  }
+    	  document.getElementById(cityName).style.display = "block";
+    	  evt.currentTarget.className += " active";
+    	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<html>
+<head>
+    <title>Hotel profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/authorization.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
+    <script type="text/javascript" src="registeredUser.js"></script>
+    <link href="toastr.css" rel="stylesheet" />
+    <script type="text/javascript" src="toastr.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-growl/1.0.0/jquery.bootstrap-growl.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" id="menubar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-plane"></span> SKYNET</a>
+            </div>
+            <ul class="nav navbar-nav"></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+     			<li><a href="#login" id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'FlightReservation')" id="defaultOpen">Home</button>
+		<button id="rentACarButton" class="tablinks" onclick="openCity(event, 'rentACars')">Car Reservation</button>          
+    
+    </div>
+
+    <div class="tabcontent" id="FlightReservation">
+        <table id="flightResDisplay">
+            
+        </table>
+    </div>
+
+ 
+   
+   
+   <div id="rentACars" class="tabcontent">
+		<div class="container">
+			<h2>Rent a cars:</h2>
+		
+			<button style="background: #69a7c5; color: white"
+				class="sortByAddressRentACars" class="btn btn-primary">Sort
+				by address</button>
+			<br>
+			<table class="table table-hover" id="tableOfRentacars">
+
+			</table>
+			<br>
+		</div>
+	</div>
+	
+	
+	
+		<div id="rentacarReservation" class="tabcontent">
+		
+		<div class="container">
+			<input type="hidden" id="mainStartDate3"> <input
+				type="hidden" id="mainEndDate3"> <input type="hidden"
+				id="rentacarId">
+			<input type="hidden" id="typeOfRes"> 
+			
+			<h2>Reservation of rentacar:</h2>
+			<form class="form-horizontal" id="carReservationForm">
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pickupDateCar">Pickup
+						date: </label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" id="pickupDateCar"
+							 name="pickupDateCar">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="endDateCar">End
+						date: </label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" id="endDateCar"
+						 name="endDateCar">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pickupCity">Pickup
+						city: </label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="pickupCity"
+							 name="pickupCity">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="endCity">End
+						city: </label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="endCity"
+							name="endCity">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="carType">Car
+						type: </label>
+						<select id="carType">
+							<option value="Family">Family</option>
+							<option value="Sports">Sports</option>
+							<option value="Van">Van</option>
+						</select>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="passengers">Number
+						of passengers: </label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="passengers"
+							 name="passengers">
+					</div>
+				</div>
+				<br>
+				<h2>Price range:</h2>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="fromPrice">From:
+					</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="fromPrice"
+							placeholder="Insert start price" name="fromPrice">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="toPrice">To: </label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="toPrice"
+							placeholder="Insert maximum price" name="toPrice">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button style="background: #69a7c5; color: white" type="submit"
+							class="btn btn-default" id="button3">Submit</button>
+					</div>
+				</div>
+			</form>
+			<br>
+
+			<table class="table table-hover" id="showSuitableCars">
+			</table>
+			<p class="messageSuitableCarsTwo"></p>
+			<p class="messageSuitableCars"></p>
+			<div id = "singleRentacar"></div>
+		</div>
+	</div>
+    
+    <div id="fency" class="fency_modal">
+        <div class="fency_modal_content">
+                <table id="fencyBody">
+                </table>
+                
+                <table id="fencyButtons"></table>
+        </div>
+    </div>
+    <script>
+    document.getElementById("defaultOpen").click();
+    
+    function openCity(evt, cityName) {
+    	  var i, tabcontent, tablinks;
+    	  tabcontent = document.getElementsByClassName("tabcontent");
+    	  for (i = 0; i < tabcontent.length; i++) {
+    	    tabcontent[i].style.display = "none";
+    	  }
+    	  tablinks = document.getElementsByClassName("tablinks");
+    	  for (i = 0; i < tablinks.length; i++) {
+    	    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    	  }
+    	  document.getElementById(cityName).style.display = "block";
+    	  evt.currentTarget.className += " active";
+    	}
+    </script>
+</body>
+</html>
